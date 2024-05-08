@@ -21,6 +21,10 @@ con.connect(function (err) {
   console.log("Connected to database!");
 });
 
+app.get('/ping_url', (req, res) => {
+  res.json("{'hi': 'hi'}")
+});
+
 app.get('/messages', (req, res) => {
   con.query("SELECT * FROM messages", function (err, result, fields) {
     if (err) {
